@@ -1,4 +1,4 @@
-// This is my s so far, I'm not finished with code
+// This is my progress so far, I'm not finished with code
 
 import java.util.Scanner;
 import java.util.Arrays;

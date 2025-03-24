@@ -1,0 +1,62 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void welcome() {
+        System.out.println("Welcome! This program allows you to choose a game to play");
+        System.out.println("In this program, choose either a Guessing Game");
+        System.out.println("Or play Rock-Paper-Scissors");
+        System.out.println("Good Luck and Have Fun!");
+
+    }
+
+
+    public static void main(String[] args) {
+        System.out.println("I'm thinking of a number between 1 and 50");
+        System.out.println("Guess what it is. You have 5 tries: ");
+        boolean playAgain = true;
+        while(playAgain) {
+            int tries = 5;
+            int input;
+            Scanner scanner = new Scanner(System.in);
+            Random random = new Random();
+            int number = random.nextInt(50);
+            int guess;
+                while (tries > 0) {
+                    System.out.println("Enter number: ");
+                    guess = scanner.nextInt();
+                    if (guess < number) {
+                        System.out.println("Too low");
+                    }
+                    else if (guess > number) {
+                        System.out.println("Too high");
+                    }
+                    else {
+                        System.out.println("Correct!");
+                    }
+                    tries --;
+                }
+                if (tries == 0) {
+                    System.out.println("Too many tries");
+                }
+                System.out.println("Would you like to play again? Type yes or no");
+                String again = scanner.next();
+                if (again.equalsIgnoreCase("yes")) {
+                    playAgain = true;
+                }
+                else {
+                    playAgain = false;
+                }
+
+
+
+        }
+
+    }
+
+}
+
+
+
+
+

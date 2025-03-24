@@ -1,13 +1,92 @@
+import java.util.Random;
+import java.util.Scanner;
+
 /**
  * Lab 3: Making games
  * This program contains methods for the user to play the guessing game and rock-paper-scissors.
  * @author Shun Lett Pyae Oo (Rock-paper-scissors and menu method)
  * @author Jaya Menon (Guessing game and main method)
  */
-import java.util.Random;
-import java.util.Scanner;
-
 public class Main {
+
+    public static void main(String[] args) {
+        welcome();
+        menu();
+    }
+
+    /**
+     * Displays a welcome message for the user.
+     */
+    public static void welcome() {
+        System.out.println("Welcome! This program allows you to choose a game to play.");
+        System.out.println("You can play either a Guessing Game or Rock-Paper-Scissors.");
+        System.out.println("Good Luck and Have Fun!");
+    }
+
+    /**
+     * Displays the menu for the user to select a game.
+     * The user can choose to play the Guessing Game, Rock-Paper-Scissors, or exit.
+     */
+    public static void menu() {
+        Scanner in = new Scanner(System.in);
+        int choice;
+
+        do {
+            System.out.println("\nMain Menu:");
+            System.out.println("1. Play Guessing Game");
+            System.out.println("2. Play Rock-Paper-Scissors");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+            choice = in.nextInt();
+
+            switch (choice) {
+                case 1 -> playGuessingGame();
+                case 2 -> playRockPaperScissors();
+                case 3 -> System.out.println("Exiting the program. Goodbye!");
+                default -> System.out.println("Invalid choice, please try again.");
+            }
+        } while (choice != 3);
+    }
+
+    /**
+     * Plays a Guessing Game where the user has to guess a random number between 1 and 50.
+     */
+    public static void playGuessingGame() {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+        boolean playAgain = true;
+
+        while (playAgain) {
+            int tries = 5;
+            int number = random.nextInt(50) + 1; // Random number between 1 and 50
+
+            System.out.println("\nI'm thinking of a number between 1 and 50.");
+            System.out.println("Guess what it is. You have 5 tries.");
+
+            while (tries > 0) {
+                System.out.print("Enter number: ");
+                int guess = scanner.nextInt();
+
+                if (guess < number) {
+                    System.out.println("Too low");
+                } else if (guess > number) {
+                    System.out.println("Too high");
+                } else {
+                    System.out.println("Correct!");
+                    break;
+                }
+                tries--;
+            }
+
+            if (tries == 0) {
+                System.out.println("Too many tries! The correct number was: " + number);
+            }
+
+            System.out.print("Would you like to play again? (yes/no): ");
+            String again = scanner.next();
+            playAgain = again.equalsIgnoreCase("yes");
+        }
+    }
 
     /**
      * Plays a Rock-Paper-Scissors game against the computer.
@@ -64,30 +143,5 @@ public class Main {
         } else {
             System.out.println("Computer wins!");
         }
-    }
-
-    /**
-     * Displays the menu for the user to select a game.
-     * The user can choose to play the Guessing Game, Rock-Paper-Scissors, or exit.
-     */
-    public static void Menu() {
-        Scanner in = new Scanner(System.in);
-        int choice;
-
-        do {
-            System.out.println("\nMain Menu:");
-            System.out.println("1. Play Guessing Game");
-            System.out.println("2. Play Rock-Paper-Scissors");
-            System.out.println("3. Exit");
-            System.out.print("Enter your choice: ");
-            choice = in.nextInt();
-
-            switch (choice) {
-                case 1 -> playGuessingGame();
-                case 2 -> playRockPaperScissors();
-                case 3 -> System.out.println("Exiting the program. Goodbye!");
-                default -> System.out.println("Invalid choice, please try again.");
-            }
-        } while (choice != 3);
     }
 }

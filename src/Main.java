@@ -5,6 +5,7 @@ import java.util.Scanner;
  * Lab 3: Making games
  * This program contains methods for the user to play the guessing game and rock-paper-scissors.
  * @author Shun Lett Pyae Oo (Rock-paper-scissors and menu method)
+ * @date 03/25/25
  * @author Jaya Menon (Guessing game and main method)
  */
 public class Main {

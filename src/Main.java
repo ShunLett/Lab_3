@@ -6,7 +6,7 @@ import java.util.Scanner;
  * This program contains methods for the user to play the guessing game and rock-paper-scissors.
  * @author Shun Lett Pyae Oo (Rock-paper-scissors and menu method)
  * @author Jaya Menon (Guessing game and main method)
- * @date 03/25/25
+ * @since 03/23/25
  */
 
    
